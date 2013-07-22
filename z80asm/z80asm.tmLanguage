@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>asm</string>
+		<string>a80</string>
+	</array>
+	<key>name</key>
+	<string>Z80 Asm</string>
+	<key>patterns</key>
+	<array>
+		<dict>
+			<key>comment</key>
+			<string>Bad line (not begin from label, space, dot or comment)</string>
+			<key>match</key>
+			<string>^[^a-zA-Z_.;/ \t\r\n].*$</string>
+			<key>name</key>
+			<string>invalid.illegal.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>DUP (storm syntax)</string>
+			<key>match</key>
+			<string>^\.\d+(?=\s)</string>
+			<key>name</key>
+			<string>variable.parameter.function.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Label</string>
+			<key>match</key>
+			<string>^[a-zA-Z_.][a-zA-Z_0-9]*(?=\s|:|=|$)</string>
+			<key>name</key>
+			<string>keyword.control.flow.asm</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.asm</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.asm</string>
+				</dict>
+				<key>3</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.flow.asm</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Special case: conditional call/jmp</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=\s|:)(call|jp|jr)\s+(?:(z|nz|c|nc|po|pe|p|m)\s*,\s*)?([a-zA-Z_$][a-zA-Z_0-9]*)</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.asm</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>keyword.control.flow.asm</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Special case: djnz</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=\s|:)(djnz)\s+([a-zA-Z_$][a-zA-Z_0-9]*)</string>
+		</dict>
+		<dict>
+			<key>captures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.function.asm</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>variable.parameter.function.asm</string>
+				</dict>
+			</dict>
+			<key>comment</key>
+			<string>Special case: conditional ret</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=\s|:)(ret)(?:\s+(z|nz|c|nc|po|pe|p|m))?(?=\s|:|$)</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Z80 commands</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=\s|:)(adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sll|sra|srl|sub|xor)(?=\s|:|$)</string>
+			<key>name</key>
+			<string>storage.type.function.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Z80 commands / known macros</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=\s|:)(exa|down|up)(?=\s|:|$)</string>
+			<key>name</key>
+			<string>storage.type.function.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Asm data definition directives</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=\s|:)(db|dw|ds|defb|defw|defs|defm)(?=\s|:|$)</string>
+			<key>name</key>
+			<string>storage.type.function.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Asm general directives</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=\s|:)(include|incbin|incl|incb|org|equ|disp|phase|unphase|ent|macro|endm|dup|edup|rept|if|endif|ifdef|ifndef|proc|endp)(?=\s|:|$)</string>
+			<key>name</key>
+			<string>variable.parameter.function.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Asm functions</string>
+			<key>match</key>
+			<string>(?i)\b(high|low)\b</string>
+			<key>name</key>
+			<string>variable.parameter.function.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Asm functions</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=[a-z0-9_])(\[|\])</string>
+			<key>name</key>
+			<string>variable.parameter.function.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>SjASM directives/commands</string>
+			<key>match</key>
+			<string>(?i)(?&lt;=\s|:)(device|display|savesna|savebin|savehob|savetrd|module|endmodule)(?=\s|:|$)</string>
+			<key>name</key>
+			<string>constant.numeric.integer.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>8 bit register set</string>
+			<key>match</key>
+			<string>(?i)\b(a|b|c|d|e|h|l|i|r|xl|lx|xh|hx|ixl|ixh|yl|ly|yh|hy|iyl|iyh)\b</string>
+			<key>name</key>
+			<string>string.quoted.single.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>16 bit register set</string>
+			<key>match</key>
+			<string>(?i)(\baf')|(\b(af|bc|de|hl|sp|ix|iy)\b)</string>
+			<key>name</key>
+			<string>string.quoted.single.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>HEX/DEC/BIN number</string>
+			<key>match</key>
+			<string>(?i)(%[01]+\b)|(#[0-9a-f]+\b)|(\b([0-9]+|0x[0-9a-f]+|[0-9][0-9a-f]*h)\b)</string>
+			<key>name</key>
+			<string>entity.name.function.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Comment line</string>
+			<key>match</key>
+			<string>(//|;).*</string>
+			<key>name</key>
+			<string>comment.line.asm</string>
+		</dict>
+		<dict>
+			<key>begin</key>
+			<string>(/\*)</string>
+			<key>comment</key>
+			<string>C-style comment block</string>
+			<key>end</key>
+			<string>(\*/)</string>
+			<key>name</key>
+			<string>comment.block.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Single-line string</string>
+			<key>match</key>
+			<string>'[^']*'</string>
+			<key>name</key>
+			<string>string.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
+			<string>Single-line string</string>
+			<key>match</key>
+			<string>"[^"]*"</string>
+			<key>name</key>
+			<string>string.asm</string>
+		</dict>
+	</array>
+	<key>scopeName</key>
+	<string>source.asm</string>
+	<key>uuid</key>
+	<string>c15e385b-46ca-4911-b87f-4212fb149803</string>
+</dict>
+</plist>
