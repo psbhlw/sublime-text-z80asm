@@ -4,7 +4,7 @@
         {
             "settings": {
                 "activeGuide": "#9D550FB0", 
-                "background": "#272832", 
+                "background": "#272822", 
                 "bracketContentsForeground": "#F8F8F2A5", 
                 "bracketContentsOptions": "underline", 
                 "bracketsForeground": "#F8F8F2A5", 
@@ -227,7 +227,134 @@
             "settings": {
                 "foreground": "#E6DB74"
             }
+        },
+
+
+
+
+
+
+
+        {
+            "Name": "Bad line",
+            "scope": "invalid.illegal.asm",
+            "settings": {
+                "fontStyle": "",
+                "background": "#FF0000",
+                "foreground": "#FFFFFF"
         }
+        },
+        {
+            "Name": "Label",
+            "scope": "entity.name.label.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#FF0088"
+            }
+        },
+        {
+            "Name": "Flags",
+            "scope": "constant.other.flag.asm",
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#FFAA00"
+            }
+        },
+                        
+        {
+            "Name": "Z80 commands",
+            "scope": "keyword.other.command.asm",
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#FFFFFF"
+            }
+        },
+        {
+            "Name": "Z80 commands / known macros (down/up)",
+            "scope": "keyword.other.command.extended.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#FFFFFF"
+            }
+        },
+                        
+        {
+            "Name": "Asm data definition directives (db)",
+            "scope": "storage.type.datadef.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#00FFAA"
+            }
+        },
+        {
+            "Name": "Asm general directives (org/dup)",
+            "scope": "keyword.control.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#FFAA00"
+            }
+        },
+        
+        {
+            "Name": "Asm functions (high/low/shr)",
+            "scope": "support.function.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#FFAA00"
+            }
+        },
+
+        {
+            "Name": "SjASM directives/commands (device/display/savesna)",
+            "scope": "keyword.directive.extended.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#0099FF"
+            }
+        },
+
+        {
+            "Name": "register set",
+            "scope": "variable.parameter.register.asm",
+            "settings": {
+                "fontStyle": "bold",
+                "foreground": "#FFFF00"
+            }
+        },
+        {
+            "Name": "HEX/DEC/BIN number",
+            "scope": "constant.numeric.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#00FF00"
+            }
+        },
+
+        {
+            "Name": "Comment line",
+            "scope": "comment.line.asm",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "#75715E"
+            }
+        },
+        {
+            "Name": "C-style comment block",
+            "scope": "comment.block.asm",
+            "settings": {
+                "fontStyle": "italic",
+                "foreground": "#75715E"
+            }
+        },
+        {
+            "Name": "Single-line string",
+            "scope": "string.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#E6DB74"
+            }
+        }
+        
     ], 
     "uuid": "D8D5E82E-3D5B-46B5-B38E-8C841C21347D"
 }

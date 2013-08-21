@@ -25,7 +25,7 @@
 			<key>match</key>
 			<string>^\.\d+(?=\s)</string>
 			<key>name</key>
-			<string>variable.parameter.function.asm</string>
+			<string>keyword.control.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -33,7 +33,7 @@
 			<key>match</key>
 			<string>^[a-zA-Z_.@][a-zA-Z_.0-9]*(?=\s|:|=|$)</string>
 			<key>name</key>
-			<string>keyword.control.flow.asm</string>
+			<string>entity.name.label.asm</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -41,17 +41,17 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function.asm</string>
+					<string>keyword.other.command.asm</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.function.asm</string>
+					<string>constant.other.flag.asm</string>
 				</dict>
 				<key>3</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.flow.asm</string>
+					<string>entity.name.label.asm</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -65,12 +65,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function.asm</string>
+					<string>keyword.other.command.asm</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>keyword.control.flow.asm</string>
+					<string>entity.name.label.asm</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -84,12 +84,12 @@
 				<key>1</key>
 				<dict>
 					<key>name</key>
-					<string>storage.type.function.asm</string>
+					<string>keyword.other.command.asm</string>
 				</dict>
 				<key>2</key>
 				<dict>
 					<key>name</key>
-					<string>variable.parameter.function.asm</string>
+					<string>constant.other.flag.asm</string>
 				</dict>
 			</dict>
 			<key>comment</key>
@@ -103,7 +103,7 @@
 			<key>match</key>
 			<string>(?i)(?&lt;=\s|:)(adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sli|sll|sra|srl|sub|xor)(?=\s|:|$)</string>
 			<key>name</key>
-			<string>storage.type.function.asm</string>
+			<string>keyword.other.command.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -111,7 +111,7 @@
 			<key>match</key>
 			<string>(?i)(?&lt;=\s|:)(exa|down|up)(?=\s|:|$)</string>
 			<key>name</key>
-			<string>storage.type.function.asm</string>
+			<string>keyword.other.command.extended.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -119,7 +119,7 @@
 			<key>match</key>
 			<string>(?i)(?&lt;=\s|:)(db|dw|ds|dm|dd|dz|defb|defw|defs|defm|defd|byte|abyte(c|z)?|word|d24|dword|block|defarray)(?=\s|:|$)</string>
 			<key>name</key>
-			<string>storage.type.function.asm</string>
+			<string>storage.type.datadef.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -127,7 +127,7 @@
 			<key>match</key>
 			<string>(?i)(?&lt;=\s|:)(include|incbin|incl|incb|binary|insert|inchob|inctrd|org|align|page|slot|equ|disp|phase|unphase|dephase|ent|textarea|macro|endm|struct|ends|dup|edup|rept|define|if|ifn|endif|ifdef|ifndef|end)(?=\s|:|$)</string>
 			<key>name</key>
-			<string>variable.parameter.function.asm</string>
+			<string>keyword.control.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -135,7 +135,7 @@
 			<key>match</key>
 			<string>(?i)\b(high|low|not|mod|shl|shr)\b</string>
 			<key>name</key>
-			<string>variable.parameter.function.asm</string>
+			<string>support.function.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -143,7 +143,7 @@
 			<key>match</key>
 			<string>(?i)(?&lt;=[a-z0-9_])(\[|\])</string>
 			<key>name</key>
-			<string>variable.parameter.function.asm</string>
+			<string>support.function.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -151,7 +151,7 @@
 			<key>match</key>
 			<string>(?i)(?&lt;=\s|:)(device|display|savesna|savebin|savehob|savetrd|module|endmodule|lua|endlua|includelua|assert|emptytrd|encoding|export|labelslist|output|shellexec|size)(?=\s|:|$)</string>
 			<key>name</key>
-			<string>constant.numeric.integer.asm</string>
+			<string>keyword.directive.extended.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -159,7 +159,7 @@
 			<key>match</key>
 			<string>(?i)\b(a|b|c|d|e|h|l|i|r|xl|lx|xh|hx|ixl|ixh|yl|ly|yh|hy|iyl|iyh)\b</string>
 			<key>name</key>
-			<string>string.quoted.single.asm</string>
+			<string>variable.parameter.register.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -167,7 +167,7 @@
 			<key>match</key>
 			<string>(?i)(\baf')|(\b(af|bc|de|hl|sp|ix|iy)\b)</string>
 			<key>name</key>
-			<string>string.quoted.single.asm</string>
+			<string>variable.parameter.register.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
@@ -175,7 +175,7 @@
 			<key>match</key>
 			<string>(?i)(%[01]+\b)|(\b[01]+b\b)|((#|\$)[0-9a-f]+\b)|(\b([0-9]+|0x[0-9a-f]+|[0-9][0-9a-f]*h)\b)</string>
 			<key>name</key>
-			<string>entity.name.function.asm</string>
+			<string>constant.numeric.asm</string>
 		</dict>
 		<dict>
 			<key>comment</key>
