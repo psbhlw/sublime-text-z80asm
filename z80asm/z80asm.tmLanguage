@@ -15,7 +15,7 @@
 			<key>comment</key>
 			<string>Bad line (not begin from label, space, dot or comment)</string>
 			<key>match</key>
-			<string>^[^a-zA-Z_.;/ \t\r\n].*$</string>
+			<string>^[^a-zA-Z_.;@/ \t\r\n].*$</string>
 			<key>name</key>
 			<string>invalid.illegal.asm</string>
 		</dict>
@@ -31,7 +31,7 @@
 			<key>comment</key>
 			<string>Label</string>
 			<key>match</key>
-			<string>^[a-zA-Z_.][a-zA-Z_0-9]*(?=\s|:|=|$)</string>
+			<string>^[a-zA-Z_.@][a-zA-Z_.0-9]*(?=\s|:|=|$)</string>
 			<key>name</key>
 			<string>keyword.control.flow.asm</string>
 		</dict>
@@ -57,7 +57,7 @@
 			<key>comment</key>
 			<string>Special case: conditional call/jmp</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(call|jp|jr)\s+(?:(z|nz|c|nc|po|pe|p|m)\s*,\s*)?([a-zA-Z_$][a-zA-Z_0-9]*)</string>
+			<string>(?i)(?&lt;=\s|:)(call|jp|jr)\s+(?:(z|nz|c|nc|po|pe|p|m)\s*,\s*)?([a-zA-Z_.@$][a-zA-Z_.0-9]*)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -76,7 +76,7 @@
 			<key>comment</key>
 			<string>Special case: djnz</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(djnz)\s+([a-zA-Z_$][a-zA-Z_0-9]*)</string>
+			<string>(?i)(?&lt;=\s|:)(djnz)\s+([a-zA-Z_.@$][a-zA-Z_.0-9]*)</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -95,13 +95,13 @@
 			<key>comment</key>
 			<string>Special case: conditional ret</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(ret)(?:\s+(z|nz|c|nc|po|pe|p|m))?(?=\s|:|$)</string>
+			<string>(?i)(?&lt;=\s|:)(ret)(?:\s+(z|nz|c|nc|po|pe|p|m))?(?=\s|:|;|$)</string>
 		</dict>
 		<dict>
 			<key>comment</key>
 			<string>Z80 commands</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sll|sra|srl|sub|xor)(?=\s|:|$)</string>
+			<string>(?i)(?&lt;=\s|:)(adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sli|sll|sra|srl|sub|xor)(?=\s|:|$)</string>
 			<key>name</key>
 			<string>storage.type.function.asm</string>
 		</dict>
@@ -117,7 +117,7 @@
 			<key>comment</key>
 			<string>Asm data definition directives</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(db|dw|ds|defb|defw|defs|defm)(?=\s|:|$)</string>
+			<string>(?i)(?&lt;=\s|:)(db|dw|ds|dm|dd|dz|defb|defw|defs|defm|defd|byte|abyte(c|z)?|word|d24|dword|block|defarray)(?=\s|:|$)</string>
 			<key>name</key>
 			<string>storage.type.function.asm</string>
 		</dict>
@@ -125,7 +125,7 @@
 			<key>comment</key>
 			<string>Asm general directives</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(include|incbin|incl|incb|org|equ|disp|phase|unphase|ent|macro|endm|dup|edup|rept|if|endif|ifdef|ifndef|proc|endp)(?=\s|:|$)</string>
+			<string>(?i)(?&lt;=\s|:)(include|incbin|incl|incb|binary|insert|inchob|inctrd|org|align|page|slot|equ|disp|phase|unphase|dephase|ent|textarea|macro|endm|struct|ends|dup|edup|rept|define|if|ifn|endif|ifdef|ifndef|end)(?=\s|:|$)</string>
 			<key>name</key>
 			<string>variable.parameter.function.asm</string>
 		</dict>
@@ -133,7 +133,7 @@
 			<key>comment</key>
 			<string>Asm functions</string>
 			<key>match</key>
-			<string>(?i)\b(high|low)\b</string>
+			<string>(?i)\b(high|low|not|mod|shl|shr)\b</string>
 			<key>name</key>
 			<string>variable.parameter.function.asm</string>
 		</dict>
@@ -149,7 +149,7 @@
 			<key>comment</key>
 			<string>SjASM directives/commands</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(device|display|savesna|savebin|savehob|savetrd|module|endmodule)(?=\s|:|$)</string>
+			<string>(?i)(?&lt;=\s|:)(device|display|savesna|savebin|savehob|savetrd|module|endmodule|lua|endlua|includelua|assert|emptytrd|encoding|export|labelslist|output|shellexec|size)(?=\s|:|$)</string>
 			<key>name</key>
 			<string>constant.numeric.integer.asm</string>
 		</dict>
@@ -173,7 +173,7 @@
 			<key>comment</key>
 			<string>HEX/DEC/BIN number</string>
 			<key>match</key>
-			<string>(?i)(%[01]+\b)|(#[0-9a-f]+\b)|(\b([0-9]+|0x[0-9a-f]+|[0-9][0-9a-f]*h)\b)</string>
+			<string>(?i)(%[01]+\b)|(\b[01]+b\b)|((#|\$)[0-9a-f]+\b)|(\b([0-9]+|0x[0-9a-f]+|[0-9][0-9a-f]*h)\b)</string>
 			<key>name</key>
 			<string>entity.name.function.asm</string>
 		</dict>
@@ -213,7 +213,7 @@
 		</dict>
 	</array>
 	<key>scopeName</key>
-	<string>source.asm</string>
+	<string>source.z80asm</string>
 	<key>uuid</key>
 	<string>c15e385b-46ca-4911-b87f-4212fb149803</string>
 </dict>

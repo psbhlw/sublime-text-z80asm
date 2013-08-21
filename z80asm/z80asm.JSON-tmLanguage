@@ -1,10 +1,10 @@
 { "name": "Z80 Asm",
-  "scopeName": "source.asm",
+  "scopeName": "source.z80asm",
   "fileTypes": ["asm","a80"],
   "patterns": [
 
 	{
-		"match": "^[^a-zA-Z_.;/ \\t\\r\\n].*$",
+		"match": "^[^a-zA-Z_.;@/ \\t\\r\\n].*$",
 		"name": "invalid.illegal.asm",
 		"comment": "Bad line (not begin from label, space, dot or comment)"
 	},
@@ -14,14 +14,14 @@
 		"comment": "DUP (storm syntax)"
 	},
 	{
-		"match": "^[a-zA-Z_.][a-zA-Z_0-9]*(?=\\s|:|=|$)",
+		"match": "^[a-zA-Z_.@][a-zA-Z_.0-9]*(?=\\s|:|=|$)",
 		"name": "keyword.control.flow.asm",
 		"comment": "Label"
 	},
 
 
 	{
-		"match": "(?i)(?<=\\s|:)(call|jp|jr)\\s+(?:(z|nz|c|nc|po|pe|p|m)\\s*,\\s*)?([a-zA-Z_$][a-zA-Z_0-9]*)",
+		"match": "(?i)(?<=\\s|:)(call|jp|jr)\\s+(?:(z|nz|c|nc|po|pe|p|m)\\s*,\\s*)?([a-zA-Z_.@$][a-zA-Z_.0-9]*)",
 		"captures": {
                 "1": { "name": "storage.type.function.asm" },
                 "2": { "name": "variable.parameter.function.asm" },
@@ -30,7 +30,7 @@
 		"comment": "Special case: conditional call/jmp"
 	},
 	{
-		"match": "(?i)(?<=\\s|:)(djnz)\\s+([a-zA-Z_$][a-zA-Z_0-9]*)",
+		"match": "(?i)(?<=\\s|:)(djnz)\\s+([a-zA-Z_.@$][a-zA-Z_.0-9]*)",
 		"captures": {
                 "1": { "name": "storage.type.function.asm" },
                 "2": { "name": "keyword.control.flow.asm" }
@@ -38,7 +38,7 @@
 		"comment": "Special case: djnz"
 	},
 	{
-		"match": "(?i)(?<=\\s|:)(ret)(?:\\s+(z|nz|c|nc|po|pe|p|m))?(?=\\s|:|$)",
+		"match": "(?i)(?<=\\s|:)(ret)(?:\\s+(z|nz|c|nc|po|pe|p|m))?(?=\\s|:|;|$)",
 		"captures": {
                 "1": { "name": "storage.type.function.asm" },
                 "2": { "name": "variable.parameter.function.asm" }
@@ -48,7 +48,7 @@
 
 
 	{
-		"match": "(?i)(?<=\\s|:)(adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sll|sra|srl|sub|xor)(?=\\s|:|$)",
+		"match": "(?i)(?<=\\s|:)(adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sli|sll|sra|srl|sub|xor)(?=\\s|:|$)",
 		"name": "storage.type.function.asm",
 		"comment": "Z80 commands"
 	},
@@ -58,17 +58,17 @@
 		"comment": "Z80 commands / known macros"
 	},
 	{ 
-		"match": "(?i)(?<=\\s|:)(db|dw|ds|defb|defw|defs|defm)(?=\\s|:|$)",
+		"match": "(?i)(?<=\\s|:)(db|dw|ds|dm|dd|dz|defb|defw|defs|defm|defd|byte|abyte(c|z)?|word|d24|dword|block|defarray)(?=\\s|:|$)",
 		"name": "storage.type.function.asm",
 		"comment": "Asm data definition directives"
 	},
 	{
-		"match": "(?i)(?<=\\s|:)(include|incbin|incl|incb|org|equ|disp|phase|unphase|ent|macro|endm|dup|edup|rept|if|endif|ifdef|ifndef|proc|endp)(?=\\s|:|$)",
+		"match": "(?i)(?<=\\s|:)(include|incbin|incl|incb|binary|insert|inchob|inctrd|org|align|page|slot|equ|disp|phase|unphase|dephase|ent|textarea|macro|endm|struct|ends|dup|edup|rept|define|if|ifn|endif|ifdef|ifndef|end)(?=\\s|:|$)",
 		"name": "variable.parameter.function.asm",
 		"comment": "Asm general directives"
 	},
 	{
-		"match": "(?i)\\b(high|low)\\b",
+		"match": "(?i)\\b(high|low|not|mod|shl|shr)\\b",
 		"name": "variable.parameter.function.asm",
 		"comment": "Asm functions"
 	},
@@ -79,7 +79,7 @@
 	},
 
 	{
-		"match": "(?i)(?<=\\s|:)(device|display|savesna|savebin|savehob|savetrd|module|endmodule)(?=\\s|:|$)",
+		"match": "(?i)(?<=\\s|:)(device|display|savesna|savebin|savehob|savetrd|module|endmodule|lua|endlua|includelua|assert|emptytrd|encoding|export|labelslist|output|shellexec|size)(?=\\s|:|$)",
 		"name": "constant.numeric.integer.asm",
 		"comment": "SjASM directives/commands"
 	},
@@ -96,7 +96,7 @@
 		"comment": "16 bit register set"
 	},
 	{
-		"match": "(?i)(%[01]+\\b)|(#[0-9a-f]+\\b)|(\\b([0-9]+|0x[0-9a-f]+|[0-9][0-9a-f]*h)\\b)",
+		"match": "(?i)(%[01]+\\b)|(\\b[01]+b\\b)|((#|\\$)[0-9a-f]+\\b)|(\\b([0-9]+|0x[0-9a-f]+|[0-9][0-9a-f]*h)\\b)",
 		"name": "entity.name.function.asm",
 		"comment": "HEX/DEC/BIN number"
 	},
