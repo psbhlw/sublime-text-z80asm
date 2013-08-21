@@ -1,0 +1,12 @@
+<snippet>
+    <content><![CDATA[
+        macro ${1:MyMacroName} ${2:parm1},${3:parm2}
+        ld a,${2:parm1}
+        endm
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!macro</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: macro</description>
+</snippet>

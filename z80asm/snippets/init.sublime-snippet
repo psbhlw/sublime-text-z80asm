@@ -1,0 +1,19 @@
+<snippet>
+    <content><![CDATA[
+        device zxspectrum128
+
+        org ${1:#6000}
+
+; Put your code here
+        ${0:}
+        jr \$
+
+        savesna "code.sna",${1:#6000}
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!init</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: a80 skeleton</description>
+</snippet>

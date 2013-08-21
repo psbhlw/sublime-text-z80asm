@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+${1:interr}
+        push af,bc,de,hl,ix,iy
+        exx:exa:push af,bc,de,hl
+        ${0:}
+        pop hl,de,bc,af:exa:exx
+        pop iy,ix,hl,de,bc,af
+        ei
+        ret
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!int</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: interrupt routine</description>
+</snippet>
