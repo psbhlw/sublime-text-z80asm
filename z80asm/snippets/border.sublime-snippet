@@ -1,6 +1,6 @@
 <snippet>
     <content><![CDATA[
-        ld a,{1:0}
+        ld a,${1:7}
         out (#fe),a
         ${0:}
 ]]></content>

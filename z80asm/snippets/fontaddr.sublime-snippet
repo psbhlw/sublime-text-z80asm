@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+        ; calc address of char in font
+        ld l,a,h,0      ; a=char
+        add hl,hl,hl,hl,hl,hl
+        ld bc,${1:font}-256
+        add hl,bc       ; hl=address in font
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!fontaddr</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: calc address in font</description>
+</snippet>

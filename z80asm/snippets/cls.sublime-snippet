@@ -1,5 +1,6 @@
 <snippet>
     <content><![CDATA[
+        ; clear screen
         ld hl,#4000
         ld de,#4001
         ld bc,#1aff

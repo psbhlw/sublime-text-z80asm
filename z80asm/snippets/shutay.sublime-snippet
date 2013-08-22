@@ -1,0 +1,19 @@
+<snippet>
+    <content><![CDATA[
+        ; shut ay
+        ld de,#0000
+${1:shutayl} ld bc,#fffd
+        out (c),e
+        ld b,#bf
+        out (c),d
+        inc e
+        bit 4,e
+        jr z,${1:shutayl}
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!shutay</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: shut AY</description>
+</snippet>

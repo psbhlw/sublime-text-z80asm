@@ -1,5 +1,6 @@
 <snippet>
     <content><![CDATA[
+        ; next screen line address
         inc ${1:d}
         ld  a,${1:d}
         and 7
@@ -17,5 +18,5 @@
     <tabTrigger>!down</tabTrigger>
     <!-- Optional: Set a scope to limit where the snippet will trigger -->
     <scope>source.z80asm</scope>
-    <description>Z80 Asm: next screen line</description>
+    <description>Z80 Asm: next screen line address</description>
 </snippet>

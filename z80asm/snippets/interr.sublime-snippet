@@ -1,5 +1,6 @@
 <snippet>
     <content><![CDATA[
+        ; interrupt routine
 ${1:interr}
         push af,bc,de,hl,ix,iy
         exx:exa:push af,bc,de,hl

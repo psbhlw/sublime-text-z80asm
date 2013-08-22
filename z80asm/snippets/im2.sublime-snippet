@@ -1,5 +1,6 @@
 <snippet>
     <content><![CDATA[
+        ; init im2
         ld hl,#${1:be}00 ; table address
         ld a,#${2:bf}    ; vector
         ld (hl),a
@@ -9,10 +10,10 @@
         ld (hl),a
 
         ld a,#c3    ; jp opcode
-        ld hl,interr; int. handler
+        ld hl,${3:interr}; int. handler
         ld (#${2:bf}${2:bf}),a
         ld (#${2:bf}${2:bf}+1),hl
-        ld a,#${1:be}    ; table address
+        ld a,#${1:be}    ; table address (MSB)
         ld i,a
         im 2
         ${0:}

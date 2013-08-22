@@ -8,7 +8,7 @@
         ${0:}
         jr \$
 
-        savesna "code.sna",${1:#6000}
+        ; savesna "code.sna",${1:#6000}
 
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
