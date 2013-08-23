@@ -1,4 +1,7 @@
 {
+    // Sets the colors used within the text area
+    "color_scheme": "Packages/z80asm/z80asm.tmTheme",
+
     // The number of spaces a tab is considered equal to
     "tab_size": 8,
 
