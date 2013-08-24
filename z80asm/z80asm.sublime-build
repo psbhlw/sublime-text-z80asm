@@ -1,0 +1,17 @@
+{
+	"cmd": ["$packages/z80asm/sjasm.bat"],
+	"working_dir": "$file_path",
+	"file_regex": "^(.+)\\(([0-9]+)\\):.*?(): (.*)$",
+	"selector": "source.z80asm",
+	"encoding": "cp866",
+
+	"windows":
+    {
+        "cmd": ["$packages/z80asm/sjasmplus.bat","$file_name"]
+    },
+
+	"linux":
+    {
+        "cmd": ["$packages/z80asm/sjasmplus.bat","$file_name"]
+    }
+}
