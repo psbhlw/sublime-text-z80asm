@@ -1,17 +1,22 @@
 {
-	"cmd": ["$packages/z80asm/sjasm.bat"],
-	"working_dir": "$file_path",
-	"file_regex": "^(.+)\\(([0-9]+)\\):.*?(): (.*)$",
-	"selector": "source.z80asm",
-	"encoding": "cp866",
+    "cmd": ["$packages/z80asm/build.bat"],
+    "working_dir": "$file_path",
+    "file_regex": "^(.+)\\(([0-9]+)\\):.*?(): (.*)$",
+    "selector": "source.z80asm",
+    "encoding": "cp866",
 
-	"windows":
+    "windows":
     {
-        "cmd": ["$packages/z80asm/sjasmplus.bat","$file_name"]
+        "cmd": ["$packages/z80asm/build.bat","$file_name"]
     },
 
-	"linux":
+    "linux":
     {
-        "cmd": ["$packages/z80asm/sjasmplus.bat","$file_name"]
+        "cmd": ["$packages/z80asm/build.sh","$file_name"]
+    },
+
+    "osx":
+    {
+        "cmd": ["$packages/z80asm/build","$file_name"]
     }
 }

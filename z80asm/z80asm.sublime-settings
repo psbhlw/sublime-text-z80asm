@@ -6,6 +6,17 @@
     // When disabled, tab will only trigger snippets or insert a tab.
     // Shift+tab can be used to insert an explicit tab when tab_completion is
     // enabled.
-    "tab_completion": false
+    "tab_completion": false,
+
+    // The encoding to use when the encoding can't be determined automatically.
+    // ASCII, UTF-8 and UTF-16 encodings will be automatically detected.
+    "fallback_encoding": "cp-1251",
+
+    // Encoding used when saving new files, and files opened with an undefined
+    // encoding (e.g., plain ascii files). If a file is opened with a specific
+    // encoding (either detected or given explicitly), this setting will be
+    // ignored, and the file will be saved with the encoding it was opened
+    // with.
+    "default_encoding": "cp-1251"
 
 }

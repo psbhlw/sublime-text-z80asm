@@ -1,0 +1,58 @@
+[
+
+{
+  "caption": "Z80Asm",
+  "mnemonic": "Z",
+  "id": "z80asm",
+  "children":
+  [
+    { "command": "", "caption": "New", "mnemonic": "N",
+      "children":
+      [
+        { "command": "a80_do_cmd", "args": {"cmd":"NewCode"},  "caption": "Code",         "mnemonic": "C" },
+        { "command": "a80_do_cmd", "args": {"cmd":"NewBasic"}, "caption": "Basic loader", "mnemonic": "B" }
+      ]
+    },
+
+    { "caption": "-"},
+    { "command": "a80_do_cmd", "args": {"cmd":"Build"},     "caption": "Build",         "mnemonic": "B" },
+    { "command": "a80_do_cmd", "args": {"cmd":"Run"},       "caption": "Run",           "mnemonic": "R" },
+    { "command": "a80_do_cmd", "args": {"cmd":"Build_Run"}, "caption": "Build and Run", "mnemonic": "A" },
+    
+    { "caption": "-"},
+    { "command": "a80_do_cmd", "args": {"cmd":"AFormat"}, "caption": "Auto-format",    "mnemonic": "F" },
+    { "command": "a80_do_cmd", "args": {"cmd":"JLine"},   "caption": "Join lines",     "mnemonic": "J" },
+    { "command": "a80_do_cmd", "args": {"cmd":"Sline"},   "caption": "Split line",     "mnemonic": "S" },
+    { "command": "",                                      "caption": "Syntax convert", "mnemonic": "Y",
+      "children":
+      [
+        { "command": "a80_do_cmd", "args": {"cmd":"SynStorm"}, "caption": "Storm", "mnemonic": "S" },
+        { "command": "a80_do_cmd", "args": {"cmd":"SynAlasm"}, "caption": "Alasm", "mnemonic": "A" }
+      ]
+    },
+    
+    { "caption": "-"},
+
+    { "command": "", "caption": "Settings", "mnemonic": "S",
+      "children":
+      [
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/z80asm.sublime-settings"}, "caption": "Main settings...",        "mnemonic": "M" },
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/z80asm.sublime-build"},    "caption": "Build settings...",       "mnemonic": "B" },
+        { "caption": "-"},
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/build.bat"},               "caption": "Build script (win)...",   "mnemonic": "W" },
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/build.sh"},                "caption": "Build script (linux)...", "mnemonic": "L" },
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/build"},                   "caption": "Build script (osx)...",   "mnemonic": "O" },
+        { "caption": "-"},
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/emul.bat"},                "caption": "Emul script (win)...",    "mnemonic": "W" },
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/emul.sh"},                 "caption": "Emul script (linux)...",  "mnemonic": "L" },
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/emul"},                    "caption": "Emul script (osx)...",    "mnemonic": "O" }
+      ]
+    },
+
+    { "caption": "-"},
+    { "command": "a80_do_cmd", "args": {"cmd":"About"}, "caption": "About...",    "mnemonic": "T" }
+
+  ]
+}
+
+]
