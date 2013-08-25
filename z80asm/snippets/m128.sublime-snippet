@@ -13,8 +13,9 @@
         cp d
         jr z,${1:mode128}
         ; mode 48k here
-
+        ${0:}
 ${1:mode128} ; mode 128k here
+
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>!m128</tabTrigger>

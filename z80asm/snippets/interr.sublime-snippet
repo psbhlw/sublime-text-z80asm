@@ -9,6 +9,7 @@ ${1:interr}
         pop iy,ix,hl,de,bc,af
         ei
         ret
+
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>!int</tabTrigger>

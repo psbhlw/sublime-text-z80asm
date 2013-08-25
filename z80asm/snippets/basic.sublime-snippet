@@ -23,6 +23,7 @@ lend
     
         emptytrd "${2:mydisk}.trd"
         savetrd  "${2:mydisk}.trd","${3:boot}.B",${1:#5d3b},lend-start
+
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>!basic</tabTrigger>

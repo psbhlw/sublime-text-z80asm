@@ -3,6 +3,7 @@
         push ${1:bc}
         ${0:}
         pop ${1:bc}
+
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>!pp</tabTrigger>

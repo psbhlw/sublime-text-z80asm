@@ -1,10 +1,11 @@
 <snippet>
     <content><![CDATA[
         struct ${1:MyStruct}
-; var1    byte 4
+${0:}; var1    byte 4
 ; var2    word 5
 ; var3    dword 6
         ends
+
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>!struct</tabTrigger>

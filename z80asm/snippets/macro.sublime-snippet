@@ -1,8 +1,9 @@
 <snippet>
     <content><![CDATA[
         macro ${1:MyMacroName} ${2:parm1},${3:parm2}
-        ld a,${2:parm1}
+        ${0:}ld a,${2:parm1}
         endm
+
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>!macro</tabTrigger>

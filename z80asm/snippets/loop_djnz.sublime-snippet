@@ -4,6 +4,7 @@
 ${2:loop}
         ${0:}
         djnz ${2:loop}
+
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>!loop_djnz</tabTrigger>

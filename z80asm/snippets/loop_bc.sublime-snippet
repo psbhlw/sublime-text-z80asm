@@ -7,6 +7,7 @@ ${4:loop}
         ld a,${1:b}
         or ${2:c}
         jr nz,${4:loop}
+
 ]]></content>
     <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
     <tabTrigger>!loop_bc</tabTrigger>
