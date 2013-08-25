@@ -242,7 +242,7 @@
                 "fontStyle": "",
                 "background": "#FF0000",
                 "foreground": "#FFFFFF"
-        }
+            }
         },
         {
             "Name": "Label",

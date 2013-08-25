@@ -3,103 +3,109 @@
   "fileTypes": ["a80","asm"],
   "patterns": [
 
-	{
-		"match": "^[^a-zA-Z_.;@/ \\t\\r\\n].*$",
-		"name": "invalid.illegal.asm",
-		"comment": "Bad line (not begin from label, space, dot or comment)"
-	},
-	{
-		"match": "^\\.\\d+(?=\\s)",
+    {
+        "match": "^[0-9]+[^0-9\\s:].*$",
+        "name": "invalid.illegal.asm",
+        "comment": "Bad temporary label (not only numeric)"
+    },
+    {
+        "match": "^[^a-zA-Z0-9_.;@/ \\t\\r\\n].*$",
+        "name": "invalid.illegal.asm",
+        "comment": "Bad line (not begin from label, space, dot or comment)"
+    },
+
+    {
+        "match": "^\\.\\d+(?=\\s)",
         "name": "keyword.control.asm",
-		"comment": "DUP (storm syntax)"
-	},
-	{
-		"match": "^[a-zA-Z_.@][a-zA-Z_.0-9]*(?=\\s|:|=|$)",
+        "comment": "DUP (storm syntax)"
+    },
+    {
+        "match": "^(([a-zA-Z_.@][a-zA-Z_.0-9]*)|[0-9]+)(?=\\s|:|=|$)",
         "name": "entity.name.label.asm",
-		"comment": "Label"
-	},
+        "comment": "Label"
+    },
 
 
-	{
-		"match": "(?i)(?<=\\s|:)(call|jp|jr)\\s+(?:(z|nz|c|nc|po|pe|p|m)\\s*,\\s*)?([a-zA-Z_.@$][a-zA-Z_.0-9]*)",
-		"captures": {
+    {
+        "match": "(?i)(?<=\\s|:)(call|jp|jr)\\s+(?:(z|nz|c|nc|po|pe|p|m)\\s*,\\s*)?((?:[a-zA-Z_.@$][a-zA-Z_.0-9]*)|[0-9]+(?:b|f))",
+        "captures": {
                 "1": { "name": "keyword.other.command.asm" },
                 "2": { "name": "constant.other.flag.asm" },
                 "3": { "name": "entity.name.label.asm" }
             },
-		"comment": "Special case: conditional call/jmp"
-	},
-	{
-		"match": "(?i)(?<=\\s|:)(djnz)\\s+([a-zA-Z_.@$][a-zA-Z_.0-9]*)",
-		"captures": {
+        "comment": "Special case: conditional call/jmp"
+    },
+    {
+        "match": "(?i)(?<=\\s|:)(djnz)\\s+((?:[a-zA-Z_.@$][a-zA-Z_.0-9]*)|[0-9]+(?:b|f))",
+        "captures": {
                 "1": { "name": "keyword.other.command.asm" },
                 "2": { "name": "entity.name.label.asm" }
             },
-		"comment": "Special case: djnz"
-	},
-	{
-		"match": "(?i)(?<=\\s|:)(ret)(?:\\s+(z|nz|c|nc|po|pe|p|m))?(?=\\s|:|;|$)",
-		"captures": {
+        "comment": "Special case: djnz"
+    },
+    {
+        "match": "(?i)(?<=\\s|:)(ret)(?:\\s+(z|nz|c|nc|po|pe|p|m))?(?=\\s|:|;|$)",
+        "captures": {
                 "1": { "name": "keyword.other.command.asm" },
                 "2": { "name": "constant.other.flag.asm" }
             },
-		"comment": "Special case: conditional ret"
-	},
+        "comment": "Special case: conditional ret"
+    },
 
 
-	{
-		"match": "(?i)(?<=\\s|:)(adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sli|sll|sra|srl|sub|xor)(?=\\s|:|$)",
+    {
+        "match": "(?i)(?<=\\s|:)(adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sli|sll|sra|srl|sub|xor)(?=\\s|:|$)",
         "name": "keyword.other.command.asm",
-		"comment": "Z80 commands"
-	},
-	{
-		"match": "(?i)(?<=\\s|:)(exa|down|up)(?=\\s|:|$)",
+        "comment": "Z80 commands"
+    },
+    {
+        "match": "(?i)(?<=\\s|:)(exa|down|up)(?=\\s|:|$)",
         "name": "keyword.other.command.extended.asm",
-		"comment": "Z80 commands / known macros"
-	},
-	{ 
-		"match": "(?i)(?<=\\s|:)(db|dw|ds|dm|dd|dz|defb|defw|defs|defm|defd|byte|abyte(c|z)?|word|d24|dword|block|defarray)(?=\\s|:|$)",
+        "comment": "Z80 commands / known macros"
+    },
+    { 
+        "match": "(?i)(?<=\\s|:)(db|dw|ds|dm|dd|dz|defb|defw|defs|defm|defd|byte|abyte(c|z)?|word|d24|dword|block|defarray)(?=\\s|:|$)",
         "name": "storage.type.datadef.asm",
-		"comment": "Asm data definition directives"
-	},
-	{
-		"match": "(?i)(?<=\\s|:)(include|incbin|incl|incb|binary|insert|inchob|inctrd|org|align|page|slot|equ|disp|phase|unphase|dephase|ent|textarea|macro|endm|struct|ends|dup|edup|rept|define|if|ifn|endif|ifdef|ifndef|end)(?=\\s|:|$)",
+        "comment": "Asm data definition directives"
+    },
+    {
+        "match": "(?i)(?<=\\s|:)(include|incbin|incl|incb|binary|insert|inchob|inctrd|org|align|page|slot|equ|disp|phase|unphase|dephase|ent|textarea|macro|endm|struct|ends|dup|edup|rept|define|if|ifn|endif|ifdef|ifndef|end)(?=\\s|:|$)",
         "name": "keyword.control.asm",
-		"comment": "Asm general directives"
-	},
-	{
-		"match": "(?i)\\b(high|low|not|mod|shl|shr)\\b",
+        "comment": "Asm general directives"
+    },
+    {
+        "match": "(?i)\\b(high|low|not|mod|shl|shr)\\b",
         "name": "support.function.asm",
-		"comment": "Asm functions"
-	},
-	{
-		"match": "(?i)(?<=[a-z0-9_])(\\[|\\])",
+        "comment": "Asm functions"
+    },
+    {
+        "match": "(?i)(?<=[a-z0-9_])(\\[|\\])",
         "name": "support.function.asm",
-		"comment": "Asm functions"
-	},
+        "comment": "Asm functions"
+    },
 
-	{
-		"match": "(?i)(?<=\\s|:)(device|display|savesna|savebin|savehob|savetrd|module|endmodule|lua|endlua|includelua|assert|emptytrd|encoding|export|labelslist|output|shellexec|size)(?=\\s|:|$)",
+    {
+        "match": "(?i)(?<=\\s|:)(device|display|savesna|savebin|savehob|savetrd|module|endmodule|lua|endlua|includelua|assert|emptytrd|encoding|export|labelslist|output|shellexec|size)(?=\\s|:|$)",
         "name": "keyword.directive.extended.asm",
-		"comment": "SjASM directives/commands"
-	},
+        "comment": "SjASM directives/commands"
+    },
 
 
-	{
-		"match": "(?i)\\b(a|b|c|d|e|h|l|i|r|xl|lx|xh|hx|ixl|ixh|yl|ly|yh|hy|iyl|iyh)\\b",
+    {
+        "match": "(?i)\\b(a|b|c|d|e|h|l|i|r|xl|lx|xh|hx|ixl|ixh|yl|ly|yh|hy|iyl|iyh)\\b",
         "name": "variable.parameter.register.asm",
-		"comment": "8 bit register set"
-	},
-	{
-		"match": "(?i)(\\baf')|(\\b(af|bc|de|hl|sp|ix|iy)\\b)",
+        "comment": "8 bit register set"
+    },
+    {
+        "match": "(?i)(\\baf')|(\\b(af|bc|de|hl|sp|ix|iy)\\b)",
         "name": "variable.parameter.register.asm",
-		"comment": "16 bit register set"
-	},
-	{
-		"match": "(?i)(%[01]+\\b)|(\\b[01]+b\\b)|((#|\\$)[0-9a-f]+\\b)|(\\b([0-9]+|0x[0-9a-f]+|[0-9][0-9a-f]*h)\\b)",
+        "comment": "16 bit register set"
+    },
+    {
+        "match": "(?i)(%[01]+\\b)|(\\b[01]+b\\b)|((#|\\$)[0-9a-f]+\\b)|(\\b([0-9]+|0x[0-9a-f]+|[0-9][0-9a-f]*h)\\b)",
         "name": "constant.numeric.asm",
-		"comment": "HEX/DEC/BIN number"
-	},
+        "comment": "HEX/DEC/BIN number"
+    },
 
     {
         "match": "(\\b|@)[a-zA-Z_.][a-zA-Z_.0-9]*\\b",
@@ -108,28 +114,28 @@
     },
 
 
-	{
-		"match": "(\/\/|;).*",
-		"name": "comment.line.asm",
-		"comment": "Comment line"
-	},
-	{
-		"begin": "(\/\\*)",
-		"end": "(\\*\/)",
-		"name": "comment.block.asm",
-		"comment": "C-style comment block"
-	},
+    {
+        "match": "(\/\/|;).*",
+        "name": "comment.line.asm",
+        "comment": "Comment line"
+    },
+    {
+        "begin": "(\/\\*)",
+        "end": "(\\*\/)",
+        "name": "comment.block.asm",
+        "comment": "C-style comment block"
+    },
 
-	{
-		"match": "'[^']*'",
-		"name": "string.asm",
-		"comment": "Single-line string"
-	},
-	{
-		"match": "\"[^\"]*\"",
-		"name": "string.asm",
-		"comment": "Single-line string"
-	}
+    {
+        "match": "'[^']*'",
+        "name": "string.asm",
+        "comment": "Single-line string"
+    },
+    {
+        "match": "\"[^\"]*\"",
+        "name": "string.asm",
+        "comment": "Single-line string"
+    }
 
   ],
   "uuid": "c15e385b-46ca-4911-b87f-4212fb149803"

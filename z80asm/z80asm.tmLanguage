@@ -13,9 +13,17 @@
 	<array>
 		<dict>
 			<key>comment</key>
+			<string>Bad temporary label (not only numeric)</string>
+			<key>match</key>
+			<string>^[0-9]+[^0-9\s:].*$</string>
+			<key>name</key>
+			<string>invalid.illegal.asm</string>
+		</dict>
+		<dict>
+			<key>comment</key>
 			<string>Bad line (not begin from label, space, dot or comment)</string>
 			<key>match</key>
-			<string>^[^a-zA-Z_.;@/ \t\r\n].*$</string>
+			<string>^[^a-zA-Z0-9_.;@/ \t\r\n].*$</string>
 			<key>name</key>
 			<string>invalid.illegal.asm</string>
 		</dict>
@@ -31,7 +39,7 @@
 			<key>comment</key>
 			<string>Label</string>
 			<key>match</key>
-			<string>^[a-zA-Z_.@][a-zA-Z_.0-9]*(?=\s|:|=|$)</string>
+			<string>^(([a-zA-Z_.@][a-zA-Z_.0-9]*)|[0-9]+)(?=\s|:|=|$)</string>
 			<key>name</key>
 			<string>entity.name.label.asm</string>
 		</dict>
@@ -57,7 +65,7 @@
 			<key>comment</key>
 			<string>Special case: conditional call/jmp</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(call|jp|jr)\s+(?:(z|nz|c|nc|po|pe|p|m)\s*,\s*)?([a-zA-Z_.@$][a-zA-Z_.0-9]*)</string>
+			<string>(?i)(?&lt;=\s|:)(call|jp|jr)\s+(?:(z|nz|c|nc|po|pe|p|m)\s*,\s*)?((?:[a-zA-Z_.@$][a-zA-Z_.0-9]*)|[0-9]+(?:b|f))</string>
 		</dict>
 		<dict>
 			<key>captures</key>
@@ -76,7 +84,7 @@
 			<key>comment</key>
 			<string>Special case: djnz</string>
 			<key>match</key>
-			<string>(?i)(?&lt;=\s|:)(djnz)\s+([a-zA-Z_.@$][a-zA-Z_.0-9]*)</string>
+			<string>(?i)(?&lt;=\s|:)(djnz)\s+((?:[a-zA-Z_.@$][a-zA-Z_.0-9]*)|[0-9]+(?:b|f))</string>
 		</dict>
 		<dict>
 			<key>captures</key>

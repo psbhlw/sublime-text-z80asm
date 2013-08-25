@@ -1,6 +1,6 @@
 {
     "name": "Comments, completion, indent",
-    "scope": "source.z80asm", 
+    "scope": "source.z80asm",
     "settings": {
         "increaseIndentPattern": "(?x)^[a-zA-Z_.@][a-zA-Z_.0-9]*(?=\\s|:|=|$)",
 
@@ -8,19 +8,19 @@
 
         "shellVariables": [
             {
-                "name": "TM_COMMENT_START", 
+                "name": "TM_COMMENT_START",
                 "value": "; "
-            }, 
+            },
             {
-                "name": "TM_COMMENT_START_2", 
+                "name": "TM_COMMENT_START_2",
                 "value": "//"
-            }, 
+            },
             {
-                "name": "TM_COMMENT_START_3", 
+                "name": "TM_COMMENT_START_3",
                 "value": "/*"
-            }, 
+            },
             {
-                "name": "TM_COMMENT_END_3", 
+                "name": "TM_COMMENT_END_3",
                 "value": "*/"
             }
         ]
