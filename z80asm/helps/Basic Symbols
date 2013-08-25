@@ -1,0 +1,163 @@
+Control codes
+-------------
+
+code    input (keyb)        output (screen)
+------  ------------------  -------------------
+0   00  cs/ss+cs/8
+1   01  cs/ss+cs/9
+2   02  cs/ss+8
+3   03  cs/ss+9
+4   04  cs/3 (True video)
+5   05  cs/4 (Inv video)
+6   06  cs/2 (caps lock)    tab (PRINT ,)
+7   07  cs/1 (Edit)
+8   08  cs/5 (Left)         backspace
+9   09  cs/8 (Right)           
+10  0a  cs/6 (Down)            
+11  0b  cs/7 (Up)
+12  0c  cs/0 (Delete)          
+13  0d  Enter               cr+lf
+14  0e  cs/ss (Ext mode)
+15  0f  cs/9 (Graph mode)
+16  10  cs/ss+0             INK
+17  11  cs/ss+1             PAPER
+18  12  cs/ss+2             FLASH
+19  13  cs/ss+3             BRIGHT
+20  14  cs/ss+4             INVERSE
+21  15  cs/ss+5             OVER
+22  16  cs/ss+6             AT
+23  17  cs/ss+7             TAB
+24  18  cs/ss+cs/0
+25  19  cs/ss+cs/1
+26  1a  cs/ss+cs/2
+27  1b  cs/ss+cs/3
+28  1c  cs/ss+cs/4
+29  1d  cs/ss+cs/5
+30  1e  cs/ss+cs/6
+31  1f  cs/ss+cs/7
+
+
+User defined graphics (UDG)
+---------------------------
+
+code    char
+------  ----
+144 90  A
+145 91  B
+146 92  C
+147 93  D
+148 94  E
+149 95  F
+150 96  G
+151 97  H
+152 98  I
+153 99  J
+154 9a  K
+155 9b  L
+156 9c  M
+157 9d  N
+158 9e  O
+159 9f  P
+160 a0  Q
+161 a1  R
+162 a2  S
+163 a3  T
+164 a4  U
+
+
+Basic keywords
+--------------
+
+code    keyword
+------  -------
+165 a5  RND             
+166 a6  INKEY$          
+167 a7  PI              
+168 a8  FN              
+169 a9  POINT           
+170 aa  SCREEN$         
+171 ab  ATTR
+172 ac  AT              
+173 ad  TAB             
+174 ae  VAL$            
+175 af  CODE
+176 b0  VAL             
+177 b1  LEN             
+178 b2  SIN             
+179 b3  COS
+180 b4  TAN             
+181 b5  ASN             
+182 b6  ACS             
+183 b7  ATN
+184 b8  LN              
+185 b9  EXP             
+186 ba  INT             
+187 bb  SOR
+188 bc  SGN             
+189 bd  ABS             
+190 be  PEEK            
+191 bf  IN
+192 c0  USR             
+193 c1  STR$            
+194 c2  CHR$            
+195 c3  NOT
+196 c4  BIN             
+197 c5  OR              
+198 c6  AND             
+199 c7  <=
+200 c8  >=              
+201 c9  <>              
+202 ca  LINE            
+203 cb  THEN
+204 cc  TO              
+205 cd  STEP            
+206 ce  DEF FN          
+207 cf  CAT
+208 d0  FORMAT          
+209 d1  MOVE            
+210 d2  ERASE           
+211 d3  OPEN #
+212 d4  CLOSE #         
+213 d5  MERGE           
+214 d6  VERIFY          
+215 d7  BEEP
+216 d8  CIRCLE          
+217 d9  INK             
+218 da  PAPER           
+219 db  FLASH
+220 dc  BRIGHT          
+221 dd  INVERSE         
+222 de  OVER            
+223 df  OUT
+224 e0  LPRINT          
+225 e1  LLIST           
+226 e2  STOP            
+227 e3  READ
+228 e4  DATA            
+229 e5  RESTORE         
+230 e6  NEW             
+231 e7  BORDER
+232 e8  CONTINUE        
+233 e9  DIM             
+234 ea  REM             
+235 eb  FOR
+236 ec  GO TO           
+237 ed  GO SUB          
+238 ee  INPUT           
+239 ef  LOAD
+240 f0  LIST            
+241 f1  LET             
+242 f2  PAUSE           
+243 f3  NEXT
+244 f4  POKE            
+245 f5  PRINT           
+246 f6  PLOT            
+247 f7  RUN
+248 f8  SAVE            
+249 f9  RANDOMIZE       
+250 fa  IF              
+251 fb  CLS
+252 fc  DRAW            
+253 fd  CLEAR           
+254 fe  RETURN          
+255 ff  COPY    

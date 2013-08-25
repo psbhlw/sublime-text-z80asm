@@ -8,6 +8,7 @@ THIS_PLUGIN_DEBUG = True
 A80_DIR=os.path.join(sublime.packages_path(), THIS_PLUGIN_NAME)
 A80_SYNTAX_FILE='Packages'+'/'+THIS_PLUGIN_NAME+'/'+THIS_PLUGIN_NAME+'.tmLanguage'
 A80_SNIP_DIR='Packages'+'/'+THIS_PLUGIN_NAME+'/'+'snippets'
+A80_HELP_DIR=A80_DIR+'/'+'helps'
 
 
 # Debug print
@@ -26,9 +27,17 @@ class A80DoCmdCommand(sublime_plugin.WindowCommand):
 		if not fn:
 			dbgprint("No filename specified")
 			return False
+		pl=sublime.platform()
+		if pl=="windows": emulscr=A80_DIR+'/'+'emul.bat'
+		elif pl=="linux": emulscr=A80_DIR+'/'+'emul.sh'
+		elif pl=="osx": emulscr=A80_DIR+'/'+'emul'
+		else:
+			dbgprint("Unknown platform")
+			return False
+
 		folder_name,file_name=os.path.split(fn)
 		self.window.run_command('exec',
-			{'cmd': [A80_DIR+'/'+'emul.bat', file_name],
+			{'cmd': [emulscr, file_name],
 			'working_dir': folder_name,
 			'quiet': False})
 		return True
@@ -82,11 +91,40 @@ class A80DoCmdCommand(sublime_plugin.WindowCommand):
 		elif cmd=="SynAlasm":
 			dbgprint("Not implemented yet")
 
-		elif cmd=="About":
-			v=self.window.new_file()
-			v.run_command("insert_snippet", {"contents": open(A80_DIR+'/'+THIS_PLUGIN_NAME+'.about','r').read()})
-			dbgprint("About...")
 
+	# Disable not implemented items
+	def is_enabled(self, cmd):
+		if cmd not in ["AFormat", "JLine", "Sline", "SynStorm", "SynAlasm"]:
+			return True
+		return False
+
+
+
+# Helps
+class A80HelpCommand(sublime_plugin.WindowCommand):
+	def run(self, indx):
+		n=self.help_list()
+		self.window.run_command("open_file", {"file": "${packages}/z80asm/helps/"+n[indx]})
+
+	# Scan helps folder for files (10 max)
+	def help_list(self):
+		lst=os.listdir(A80_HELP_DIR)
+		lst.sort()
+		return lst[:10]
+
+	# Show help
+	def is_visible(self, indx):
+		n=self.help_list()
+		if indx<len(n):
+			return True
+		return False
+
+	# Show help names
+	def description(self, indx):
+		n=self.help_list()
+		if indx<len(n):
+			return n[indx]
+		return ""
 
 
 
