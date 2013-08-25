@@ -1,0 +1,16 @@
+<snippet>
+    <content><![CDATA[
+        ; wait any key
+        xor a
+        in a,(#fe)
+        cpl
+        and #1f
+        jr z,\$-6
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!waitany</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: wait any key</description>
+</snippet>

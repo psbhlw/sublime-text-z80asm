@@ -1,0 +1,16 @@
+<snippet>
+    <content><![CDATA[
+        ; clear screen
+        ld hl,#4000
+        ld de,#4001
+        ld bc,#1aff
+        ld (hl),l
+        ldir
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!cls</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: clear screen</description>
+</snippet>

@@ -1,0 +1,33 @@
+<snippet>
+    <content><![CDATA[
+; Basic loader
+        device zxspectrum128
+
+        org ${1:#5d3b}
+start   dw #100                         ; line number = 1
+        dw lend-lbegin                  ; line length
+lbegin  db #fd,#30                      ; 'clear' 0
+        db #0e,#00,#00,#ff,#5f,#00      ;   value=#5fff
+        db #3a,#f9,#c0,#30              ; ':' 'rand' 'usr' 0
+        db #0e,#00,#00:dw code:db #00   ;   start address
+        db #3a,#ea                      ; ':' 'rem'
+
+code    ; insert your code here
+        ; res 4,(iy+1)                ; fix usr0 issue
+        ; ld hl,#c9f1,(#5cc2),hl      ; don't break while loading
+
+        ${0:jr \$}
+
+        db #0d                          ; enter (end of basic line)
+lend
+    
+        emptytrd "${2:mydisk}.trd"
+        savetrd  "${2:mydisk}.trd","${3:boot}.B",${1:#5d3b},lend-start
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!basic</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: basic loader skeleton</description>
+</snippet>

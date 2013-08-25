@@ -1,0 +1,17 @@
+<snippet>
+    <content><![CDATA[
+        ; exit to basic
+        ld hl,#2758
+        exx
+        ld iy,23610
+        im 1
+        ei
+        ret
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!basexit</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: restore regs and exit to basic</description>
+</snippet>

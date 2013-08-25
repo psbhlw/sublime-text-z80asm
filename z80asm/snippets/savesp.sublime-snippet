@@ -1,0 +1,14 @@
+<snippet>
+    <content><![CDATA[
+        ld (${1:savesp}+1),sp
+        ld sp,${2:newaddr}
+        ${0:}
+${1:savesp}  ld sp,0
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!savesp</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: save and restore sp</description>
+</snippet>

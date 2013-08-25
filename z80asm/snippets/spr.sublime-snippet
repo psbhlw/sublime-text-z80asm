@@ -1,0 +1,21 @@
+<snippet>
+    <content><![CDATA[
+        ; print sprite
+        ld hl,${1:spr}       ; sprite address
+        ld de,${2:#4000}     ; screen address
+        ld b,${3:ysize}      ; height
+${4:loop}    push bc,de
+        dup ${5:xsize}       ; width
+        ldi
+        edup
+        pop de,bc
+        call ${6:down_de}    ; next line address
+        djnz ${4:loop}
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!spr</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: print sprite</description>
+</snippet>

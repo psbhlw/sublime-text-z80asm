@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+        ; wait space key
+        ld a,#7f
+        in a,(#fe)
+        rrca
+        jr c,\$-5
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!waitspace</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: wait space key</description>
+</snippet>

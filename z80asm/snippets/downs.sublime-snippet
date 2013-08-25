@@ -1,0 +1,23 @@
+<snippet>
+    <content><![CDATA[
+        ; next screen line address
+down_${1:d}${2:e} inc ${1:d}
+        ld  a,${1:d}
+        and 7
+        ret nz
+        ld  a,${2:e}
+        add a,32
+        ld  ${2:e},a
+        ret c
+        ld  a,${1:d}
+        sub 8
+        ld  ${1:d},a
+        ret
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!downs</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: next screen line address (sub)</description>
+</snippet>

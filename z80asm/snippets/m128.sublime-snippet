@@ -1,0 +1,25 @@
+<snippet>
+    <content><![CDATA[
+        ; 128k mode test
+        ld bc,#7ffd
+        ld de,#1011
+        ld hl,#c000
+        out (c),d
+        ld (hl),d
+        out (c),e
+        ld (hl),e
+        out (c),d
+        ld a,(hl)
+        cp d
+        jr z,${1:mode128}
+        ; mode 48k here
+        ${0:}
+${1:mode128} ; mode 128k here
+
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!m128</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: 128k mode test</description>
+</snippet>

@@ -1,0 +1,15 @@
+<snippet>
+    <content><![CDATA[
+        ; load sectors
+        ld hl,${1:addr}
+        ld de,(#5cf4)
+        ld bc,256*${2:sects}+#05
+        call #3d13
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!loadsec</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: load sectors (#3d13)</description>
+</snippet>
