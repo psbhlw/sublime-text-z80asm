@@ -1,22 +1,64 @@
 {
-    "cmd": ["$packages/z80asm/build.bat"],
     "working_dir": "$file_path",
     "file_regex": "^(.+)\\(([0-9]+)\\):.*?(): (.*)$",
     "selector": "source.z80asm",
-    "encoding": "cp866",
+    "encoding": "utf-8",
 
     "windows":
     {
-        "cmd": ["$packages/z80asm/build.bat","$file_name"]
+        "cmd": ["$packages/z80asm/build.bat","$file_name","$project_path"],
+        "encoding": "cp866"
     },
 
     "linux":
     {
-        "cmd": ["$packages/z80asm/build.sh","$file_name"]
+        "cmd": ["$packages/z80asm/build.sh","$file_name","$project_path"]
     },
 
     "osx":
     {
-        "cmd": ["$packages/z80asm/build","$file_name"]
-    }
+        "cmd": ["$packages/z80asm/build","$file_name","$project_path"]
+    },
+
+
+    "variants":
+    [
+        {
+            "name": "Run",
+            "windows":
+            {
+                "cmd": ["$packages/z80asm/run.bat","$file_name","$project_path"],
+                "encoding": "cp866"
+            },
+
+            "linux":
+            {
+                "cmd": ["$packages/z80asm/run.sh","$file_name","$project_path"]
+            },
+
+            "osx":
+            {
+                "cmd": ["$packages/z80asm/run","$file_name","$project_path"]
+            }
+        },
+        {
+            "name": "Build and Run",
+            "windows":
+            {
+                "cmd": ["$packages/z80asm/buildrun.bat","$file_name","$project_path"],
+                "encoding": "cp866"
+            },
+
+            "linux":
+            {
+                "cmd": ["$packages/z80asm/buildrun.sh","$file_name","$project_path"]
+            },
+
+            "osx":
+            {
+                "cmd": ["$packages/z80asm/buildrun","$file_name","$project_path"]
+            }
+        }
+    ]
+
 }

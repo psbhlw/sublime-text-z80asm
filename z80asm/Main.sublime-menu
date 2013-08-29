@@ -43,9 +43,9 @@
         { "command": "open_file", "args": {"file": "${packages}/z80asm/build.sh"},                "caption": "Build script (linux)..." },
         { "command": "open_file", "args": {"file": "${packages}/z80asm/build"},                   "caption": "Build script (osx)..." },
         { "caption": "-"},
-        { "command": "open_file", "args": {"file": "${packages}/z80asm/emul.bat"},                "caption": "Emul script (win)..." },
-        { "command": "open_file", "args": {"file": "${packages}/z80asm/emul.sh"},                 "caption": "Emul script (linux)..." },
-        { "command": "open_file", "args": {"file": "${packages}/z80asm/emul"},                    "caption": "Emul script (osx)..." }
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/run.bat"},                 "caption": "Emul script (win)..." },
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/run.sh"},                  "caption": "Emul script (linux)..." },
+        { "command": "open_file", "args": {"file": "${packages}/z80asm/run"},                     "caption": "Emul script (osx)..." }
       ]
     },
 

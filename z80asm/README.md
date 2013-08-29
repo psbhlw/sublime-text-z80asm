@@ -12,8 +12,8 @@ This plugin contains syntax definition for Z80 assembler language, code snippets
 ## Installation and configuration
 
 1. Copy the `z80asm` directory to the Sublime Text 2 `Packages` directory. Installation is complete.
-2. Go to the `Z80Asm > Settings > Build script...` menu and specify a path to your sjasmplus binary. You also can add your own arguments to sjasmplus.
-3. Go to the `Z80Asm > Settings > Emul script...` menu and specify a path to your UnrealSpeccy binary. You also can modify the way the emulator starts.
+2. (Optional, see below) Go to the `Z80Asm > Settings > Build script...` menu and specify a path to your sjasmplus binary. You also can add your own arguments to sjasmplus.
+3. (Optional, see below) Go to the `Z80Asm > Settings > Emul script...` menu and specify a path to your UnrealSpeccy binary. You also can modify the way the emulator starts.
 4. Go to the `Tools > Build System` menu and select the `z80asm` item.
 
 ---
@@ -26,11 +26,13 @@ This plugin contains its own color scheme `z80asm.tmTheme` based on Monokai them
 
 #### Build system
 
-Sublime Text 2 build system is defined in the `z80asm.sublime-build` file (`Z80Asm > Settings > Build settings...`). This definition file will run an appropriate script for Windows/Linux/OSX system. You can edit this script by `Z80Asm > Settings > Build script...` menu for tuning it to your environment. Included script also removes the `.out` file which is often redundant. If you need this file - comment out the removal.
+Sublime Text 2 build system is defined in the `z80asm.sublime-build` file (`Z80Asm > Settings > Build settings...`). This definition file will run an appropriate script for Windows/Linux/OSX system, it also defines `Run` and `Build and Run` actions.
+
+You can specify a path to assembler by `Z80Asm > Settings > Build script...` menu. The included script (`Z80Asm > Settings > Build script...`) do a search for `make.bat`/`make.sh` script in the project folder. If it is found - call it (in this case you don't have to specify a path to assembler), otherwise run the assembler against the current file. Included script also removes the `.out` file which is often redundant. If you need this file - comment out the removal.
 
 #### Emulator support
 
-You can specify a path to emulator by `Z80Asm > Settings > Emul script...` menu. The included script attempts to start the emulator with `%asm_name%.sna` parameter or, if `.sna` is absent, with `.trd` and then with `.tap` parameters. So, to make things work, your source file must create .sna/.trd/.tap with the same base name (hello.a80 -> hello.sna). Otherwise you have to fix the script to your own needs.
+You can specify a path to emulator by `Z80Asm > Settings > Emul script...` menu. The included script attempts to do a search for `emul.bat`/`emul.sh` script in the project folder. If it is found - call it (in this case you don't have to specify a path to emulator), otherwise run the emulator with `%asm_name%.sna` parameter or, if `.sna` is absent, with `.spg`/`.trd`/`.scl`/`.tap` parameters. So, to make things work, you must put `emul.bat` or `emul.sh` script into the project folder or your source file must create .sna/.spg/.trd/.scl/.tap with the same base name (hello.a80 -> hello.sna).
 
 #### Snippets
 

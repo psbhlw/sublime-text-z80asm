@@ -21,28 +21,6 @@ def dbgprint(s):
 
 # Command handler class
 class A80DoCmdCommand(sublime_plugin.WindowCommand):
-	# Run emulator
-	def emul(self):
-		fn=self.window.active_view().file_name()
-		if not fn:
-			dbgprint("No filename specified")
-			return False
-		pl=sublime.platform()
-		if pl=="windows": emulscr=A80_DIR+'/'+'emul.bat'
-		elif pl=="linux": emulscr=A80_DIR+'/'+'emul.sh'
-		elif pl=="osx": emulscr=A80_DIR+'/'+'emul'
-		else:
-			dbgprint("Unknown platform")
-			return False
-
-		folder_name,file_name=os.path.split(fn)
-		self.window.run_command('exec',
-			{'cmd': [emulscr, file_name],
-			'working_dir': folder_name,
-			'quiet': False})
-		return True
-
-
 	# Command handler
 	def run(self, cmd):
 
@@ -60,21 +38,15 @@ class A80DoCmdCommand(sublime_plugin.WindowCommand):
 
 		elif cmd=="Build":
 			self.window.run_command("build")
-			dbgprint("Build called")
+			dbgprint("Build started")
 
 		elif cmd=="Run":
-			if self.emul():
-				dbgprint("Emulator started")
-			else:
-				dbgprint("Emulator failed")
+			self.window.run_command("build", {"variant": "Run"})
+			dbgprint("Emulator started")
 
 		elif cmd=="Build_Run":
-			self.window.run_command("build")
-			dbgprint("Build called")
-			if self.emul():
-				dbgprint("Emulator started")
-			else:
-				dbgprint("Emulator failed")
+			self.window.run_command("build", {"variant": "Build and Run"})
+			dbgprint("Build and Run script started")
 
 		elif cmd=="AFormat":
 			dbgprint("Not implemented yet")
