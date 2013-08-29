@@ -22,6 +22,10 @@
             {
                 "name": "TM_COMMENT_END_3",
                 "value": "*/"
+            },
+            {
+                "name": "TM_COMMENT_DISABLE_INDENT", 
+                "value": "yes"
             }
         ]
     }
