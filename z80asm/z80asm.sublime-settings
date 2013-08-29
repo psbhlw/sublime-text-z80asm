@@ -23,6 +23,9 @@
     // encoding (either detected or given explicitly), this setting will be
     // ignored, and the file will be saved with the encoding it was opened
     // with.
-    "default_encoding": "Cyrillic (Windows 1251)"
+    "default_encoding": "Cyrillic (Windows 1251)",
+
+    // When enabled, all opened tabs will be scanned for completion words.
+    "use_global_completion": true
 
 }

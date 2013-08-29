@@ -403,6 +403,19 @@
 		</dict>
 		<dict>
 			<key>Name</key>
+			<string>Label definition</string>
+			<key>scope</key>
+			<string>entity.name.label.def.asm</string>
+			<key>settings</key>
+			<dict>
+				<key>fontStyle</key>
+				<string></string>
+				<key>foreground</key>
+				<string>#dab9ff</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Name</key>
 			<string>Flags</string>
 			<key>scope</key>
 			<string>constant.other.flag.asm</string>

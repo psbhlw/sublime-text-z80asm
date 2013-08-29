@@ -1,4 +1,4 @@
-# [Z80 Asm plugin for Sublime Text 2](https://github.com/psbhlw/sublime-text-z80asm)
+# [Z80 Asm plugin for Sublime Text 2/3](https://github.com/psbhlw/sublime-text-z80asm)
 ---
 
 ## Product Info
@@ -11,7 +11,7 @@ This plugin contains syntax definition for Z80 assembler language, code snippets
 
 ## Installation and configuration
 
-1. Copy the `z80asm` directory to the Sublime Text 2 `Packages` directory. Installation is complete.
+1. Copy the `z80asm` directory to the Sublime Text `Packages` directory. Installation is complete.
 2. (Optional, see below) Go to the `Z80Asm > Settings > Build script...` menu and specify a path to your sjasmplus binary. You also can add your own arguments to sjasmplus.
 3. (Optional, see below) Go to the `Z80Asm > Settings > Emul script...` menu and specify a path to your UnrealSpeccy binary. You also can modify the way the emulator starts.
 4. Go to the `Tools > Build System` menu and select the `z80asm` item.
@@ -26,13 +26,13 @@ This plugin contains its own color scheme `z80asm.tmTheme` based on Monokai them
 
 #### Build system
 
-Sublime Text 2 build system is defined in the `z80asm.sublime-build` file (`Z80Asm > Settings > Build settings...`). This definition file will run an appropriate script for Windows/Linux/OSX system, it also defines `Run` and `Build and Run` actions.
+Sublime Text build system is defined in the `z80asm.sublime-build` file (`Z80Asm > Settings > Build settings...`). This definition file will run an appropriate script for Windows/Linux/OSX system. It also defines `Run` and `Build and Run` actions.
 
-You can specify a path to assembler by `Z80Asm > Settings > Build script...` menu. The included script (`Z80Asm > Settings > Build script...`) do a search for `make.bat`/`make.sh` script in the project folder. If it is found - call it (in this case you don't have to specify a path to assembler), otherwise run the assembler against the current file. Included script also removes the `.out` file which is often redundant. If you need this file - comment out the removal.
+You can specify a path to assembler by `Z80Asm > Settings > Build script...` menu. The included script (`Z80Asm > Settings > Build script...`) performs a search for a `make.bat`/`make.sh` script in the project folder. If the script is found, it will be called (in this case you don't have to specify a path to assembler), otherwise assembler will run against the current file. Included script also removes the `.out` file which is often redundant. If you need this file - comment out the removal.
 
 #### Emulator support
 
-You can specify a path to emulator by `Z80Asm > Settings > Emul script...` menu. The included script attempts to do a search for `emul.bat`/`emul.sh` script in the project folder. If it is found - call it (in this case you don't have to specify a path to emulator), otherwise run the emulator with `%asm_name%.sna` parameter or, if `.sna` is absent, with `.spg`/`.trd`/`.scl`/`.tap` parameters. So, to make things work, you must put `emul.bat` or `emul.sh` script into the project folder or your source file must create .sna/.spg/.trd/.scl/.tap with the same base name (hello.a80 -> hello.sna).
+You can specify a path to emulator by `Z80Asm > Settings > Emul script...` menu. The included script attempts to do a search for an `emul.bat`/`emul.sh` script in the project folder. If the script is found, it will be called (in this case you don't have to specify a path to emulator), otherwise the emulator will run with `%asm_name%.sna` parameter or, if `.sna` is absent, with `.spg`/`.trd`/`.scl`/`.tap` parameters. So, to make things work, you must put the `emul.bat` or `emul.sh` script into the project folder, or your source file must create .sna/.spg/.trd/.scl/.tap with the same base name (hello.a80 -> hello.sna).
 
 #### Snippets
 
@@ -70,6 +70,12 @@ There are a lot of useful snippets for ZX-Spectrum, you can trigger them by typi
 * !module        - Module definition
 * !struct        - Structure definition
 
+#### Auto completion and Goto Symbol
+
+This plugin expands the auto completion feature to all opened tabs (instead of just current file). You can disable it in the settings (`Z80Asm > Settings > Main settings...`).
+
+You can use `Goto > Goto Symbol...` option to jump to the label definition. In Sublime Text 3 you also can use `Goto > Goto Symbol in Project...` to navigate through labels in the whole project.
+
 #### Help files
 
 In the `Z80Asm > Help` sub-menu you can find a few help files. Some of them are provided with the plugin, and you also can put your help file into `Packages/z80asm/helps/`, and it will appear in menu. There are maximum 10 files allowed.
@@ -87,6 +93,7 @@ If you have a bug/feature request - please post it on [issue tracker](https://gi
 * breeze
 * introspec
 * key-jee
+* elf/2
 
 ---
 

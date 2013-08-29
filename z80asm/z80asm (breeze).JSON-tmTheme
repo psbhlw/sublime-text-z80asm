@@ -253,6 +253,14 @@
             }
         },
         {
+            "Name": "Label definition",
+            "scope": "entity.name.label.def.asm",
+            "settings": {
+                "fontStyle": "",
+                "foreground": "#dab9ff"
+            }
+        },
+        {
             "Name": "Flags",
             "scope": "constant.other.flag.asm",
             "settings": {

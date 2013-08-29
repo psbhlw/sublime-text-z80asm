@@ -21,7 +21,7 @@
     },
     {
         "match": "^(([a-zA-Z_.@][a-zA-Z_.0-9]*)|[0-9]+)(?=\\s|:|=|$)",
-        "name": "entity.name.label.asm",
+        "name": "entity.name.label.def.asm",
         "comment": "Label"
     },
 

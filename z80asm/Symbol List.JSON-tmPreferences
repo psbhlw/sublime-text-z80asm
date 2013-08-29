@@ -1,0 +1,9 @@
+{
+    "name": "Symbol List", 
+    "scope": "entity.name.label.def.asm", 
+    "settings": {
+        "showInIndexedSymbolList": 1, 
+        "showInSymbolList": 1
+    }, 
+    "uuid": "46F06118-8CE4-4C95-A4C4-4507E056A597"
+}

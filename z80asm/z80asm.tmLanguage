@@ -41,7 +41,7 @@
 			<key>match</key>
 			<string>^(([a-zA-Z_.@][a-zA-Z_.0-9]*)|[0-9]+)(?=\s|:|=|$)</string>
 			<key>name</key>
-			<string>entity.name.label.asm</string>
+			<string>entity.name.label.def.asm</string>
 		</dict>
 		<dict>
 			<key>captures</key>

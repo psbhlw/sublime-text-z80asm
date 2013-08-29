@@ -5,16 +5,20 @@ import os
 THIS_PLUGIN_NAME = 'z80asm'
 THIS_PLUGIN_DEBUG = True
 
-A80_DIR=os.path.join(sublime.packages_path(), THIS_PLUGIN_NAME)
-A80_SYNTAX_FILE='Packages'+'/'+THIS_PLUGIN_NAME+'/'+THIS_PLUGIN_NAME+'.tmLanguage'
-A80_SNIP_DIR='Packages'+'/'+THIS_PLUGIN_NAME+'/'+'snippets'
-A80_HELP_DIR=A80_DIR+'/'+'helps'
+# Initialize plugin
+def A80Init():
+	global A80_DIR, A80_SYNTAX_FILE, A80_SNIP_DIR, A80_HELP_DIR
+	A80_DIR=os.path.join(sublime.packages_path(), THIS_PLUGIN_NAME)
+	A80_SYNTAX_FILE='Packages'+'/'+THIS_PLUGIN_NAME+'/'+THIS_PLUGIN_NAME+'.tmLanguage'
+	A80_SNIP_DIR='Packages'+'/'+THIS_PLUGIN_NAME+'/'+'snippets'
+	A80_HELP_DIR=A80_DIR+'/'+'helps'
+
 
 
 # Debug print
 def dbgprint(s):
 	if THIS_PLUGIN_DEBUG:
-		print "Z80 Asm:",s
+		print ("Z80 Asm:",s)
 		sublime.status_message(s)
 
 
@@ -99,5 +103,39 @@ class A80HelpCommand(sublime_plugin.WindowCommand):
 		return ""
 
 
+
+# Autocompletion class
+class A80Autocomplete(sublime_plugin.EventListener):
+	# Generate completion list from all opened tabs
+	def on_query_completions(self, view, prefix, locations):
+		# Check if option is enabled
+		if view.settings().get("use_global_completion") != True:
+			return []
+
+		# List of all views (our one is always first)
+		views = [view] + [v for v in sublime.active_window().views() if v.id() != view.id()]
+		compl=[]
+		for v in views:
+			if v.id() == view.id():
+				# For our view use cursor location
+				words = v.extract_completions(prefix,locations[0])
+			else:
+				words = v.extract_completions(prefix)
+			# Add only unique words
+			for w in words:
+				if w not in compl:
+					compl.append(w)
+
+		return [(el, el) for el in compl]
+
+
+
+# Define plugin_loaded() function for ST3 because it's have another plugin lifecycle
+# (cannot call sublime.packages_path() at importing time). For ST2 fust call A80Init().
+if int(sublime.version())>=3000:
+	def plugin_loaded():
+		A80Init()
+else:
+	A80Init()
 
 dbgprint("Z80 Asm plugin started!")

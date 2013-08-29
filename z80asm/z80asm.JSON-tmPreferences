@@ -1,10 +1,8 @@
 {
-    "name": "Comments, completion, indent",
+    "name": "Comments, indent",
     "scope": "source.z80asm",
     "settings": {
         "increaseIndentPattern": "(?x)^[a-zA-Z_.@][a-zA-Z_.0-9]*(?=\\s|:|=|$)",
-
-        "cancelCompletion": "^.*\\b((adc|add|and|bit|call|ccf|cp|cpl|cpd|cpdr|cpi|cpir|daa|dec|di|djnz|ei|ex|exx|halt|im|in|inc|ind|indr|inf|ini|inir|jp|jr|ld|ldd|lddr|ldi|ldir|neg|nop|exx|or|otdr|otir|out|outd|outi|pop|push|res|ret|reti|retn|rl|rla|rlc|rlca|rld|rr|rra|rrc|rrca|rrd|rst|sbc|scf|set|sla|sli|sll|sra|srl|sub|xor)|(exa|down|up)|(db|dw|ds|dm|dd|dz|defb|defw|defs|defm|defd|byte|abyte(c|z)?|word|d24|dword|block|defarray)|(include|incbin|incl|incb|binary|insert|inchob|inctrd|org|align|page|slot|equ|disp|phase|unphase|dephase|ent|textarea|macro|endm|struct|ends|dup|edup|rept|define|if|ifn|endif|ifdef|ifndef|end)|(device|display|savesna|savebin|savehob|savetrd|module|endmodule|lua|endlua|includelua|assert|emptytrd|encoding|export|labelslist|output|shellexec|size))\\b",
 
         "shellVariables": [
             {
