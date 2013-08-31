@@ -10,17 +10,17 @@ rem ----------------------------------------------------------------------------
 
 set ASM="R:\sjasmplus.exe"
 
-rem Check if file exists
-if not exist %1 (
-    echo Source file not found!
-    set errorlevel=1
-    goto :end
-)
-
 rem Run external script from project folder if exists
 if exist "%2\make.bat" (
     chdir /d "%2"
     call "make.bat" %1 %2
+    goto :end
+)
+
+rem Check if file exists
+if not exist %1 (
+    echo Source file not found!
+    set errorlevel=1
     goto :end
 )
 
