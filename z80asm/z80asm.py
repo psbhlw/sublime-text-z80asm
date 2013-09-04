@@ -109,12 +109,8 @@ class A80QuickHelpCommand(sublime_plugin.WindowCommand):
 	# Init: read items from file
 	def __init__(self, *args, **kwargs):
 		self.help=[]
-		f=open(A80_DIR+'/'+THIS_PLUGIN_NAME+'.quickhelp','rt')
-		while 1:
-			s=f.readline()
-			if not s: break
-			self.help.append(s.strip())
-		f.close()
+		with open(A80_DIR+'/'+THIS_PLUGIN_NAME+'.quickhelp','rt') as f:
+			self.help = [line.strip() for line in f]
 
 		super(A80QuickHelpCommand,self).__init__(*args, **kwargs)
 
