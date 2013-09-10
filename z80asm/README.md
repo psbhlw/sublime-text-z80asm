@@ -80,6 +80,8 @@ You can use `Goto > Goto Symbol...` option to jump to the label definition. In S
 
 In the `Z80Asm > Help` sub-menu you can find a few help files. Some of them are provided with the plugin, and you also can put your help file into `Packages/z80asm/helps/`, and it will appear in menu. There are maximum 10 files allowed.
 
+Also, you can call a quick help panel by pressing F1 where you can do a search through opcodes/mnemonics/timings.
+
 ---
 
 ## Support
@@ -94,6 +96,7 @@ If you have a bug/feature request - please post it on [issue tracker](https://gi
 * introspec
 * key-jee
 * elf/2
+* Sean Young
 
 ---
 

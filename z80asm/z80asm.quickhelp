@@ -1,34 +1,3 @@
-                +-----------------------------------------+
-                | Zilog Z80 Instructions sorted by opcode |
-                +-----------------------------------------+
-
-This should be the complete list of all the opcodes of the Zilog Z80.
-
-Note:
-- If an EDxx instruction is not listed, it should operate as two NOPs.
-
-- If a DDxx or FDxx instruction is not listed, it should operate as 
-  without the DD or FD prefix, and the DD or FD prefix itself should 
-  operate as a NOP.
-
-- * means undocumented.
-
-- LD A,RLC (IX+d) means that the result of RLC (IX+d) is not only stored
-  in (IX+d), but also in A. Double value for money !
-
-- SLL x operates the same as SLA x, except that SLL inserts 1 to the left.
-
-- OUT (C),0 always outs zero. *)see comment on bottom of page
-
-- IN F,(C) / IN (C) does not store the result from the input. It only
-  affects the flags, as the other IN r,(C) instructions do. These two 
-  mnemonics both refer to the same undocumented instruction.
-
-- IM 0/1 sets the Z80 in IM 0 or in IM 1 mode, unknown which one at this
-  moment.
-
-29-11-97 Sean Young (syoung@cs.vu.nl).
-
 Opcode          Mnemonic                T       M       M1      Notes
 -------------------------------------------------------------------------
 00              NOP                     4t      1       1
@@ -1299,7 +1268,3 @@ FDE9            JP (IY)                 8t
 FDF9            LD SP,IY                10t
 FE n            CP n                    7t
 FF              RST 38H                 11t
-
-*) seems like that’s not actually the case; depends on the exact chip type. It looks like NMOS CPUs put out 0; CMOS CPUs output 255.
-Thanks to Simon Cooke for spotting this.
-

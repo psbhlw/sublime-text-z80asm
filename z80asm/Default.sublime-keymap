@@ -1,0 +1,12 @@
+[
+	{
+		"keys": ["f1"], "command": "a80_quick_help",
+		"context": [
+			{
+				"operand": "source.z80asm",
+				"operator": "equal",
+				"key": "selector"
+			}
+		]
+	}
+]

@@ -104,6 +104,22 @@ class A80HelpCommand(sublime_plugin.WindowCommand):
 
 
 
+# Quick help - F1
+class A80QuickHelpCommand(sublime_plugin.WindowCommand):
+	# Init: read items from file
+	def __init__(self, *args, **kwargs):
+		self.help=[]
+		with open(A80_DIR+'/'+THIS_PLUGIN_NAME+'.quickhelp','rt') as f:
+			self.help = [line.strip() for line in f]
+
+		super(A80QuickHelpCommand,self).__init__(*args, **kwargs)
+
+	# Show help
+	def run(self):
+		self.window.show_quick_panel(self.help, None, sublime.MONOSPACE_FONT)
+
+
+
 # Autocompletion class
 class A80Autocomplete(sublime_plugin.EventListener):
 	# Generate completion list from all opened tabs
