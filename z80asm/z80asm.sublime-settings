@@ -14,8 +14,15 @@
     // enabled.
     "tab_completion": false,
 
+    // Enable auto complete to be triggered automatically when typing.
+    // "auto_complete": false,
+
+    // The delay, in ms, before the auto complete window is shown after typing
+    // "auto_complete_delay": 350,
+
     // The encoding to use when the encoding can't be determined automatically.
     // ASCII, UTF-8 and UTF-16 encodings will be automatically detected.
+    // "fallback_encoding": "Cyrillic (Windows 866)",
     "fallback_encoding": "Cyrillic (Windows 1251)",
 
     // Encoding used when saving new files, and files opened with an undefined
@@ -23,6 +30,7 @@
     // encoding (either detected or given explicitly), this setting will be
     // ignored, and the file will be saved with the encoding it was opened
     // with.
+    // "default_encoding": "Cyrillic (Windows 866)",
     "default_encoding": "Cyrillic (Windows 1251)",
 
     // When enabled, all opened tabs will be scanned for completion words.
