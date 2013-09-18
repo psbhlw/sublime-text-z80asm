@@ -38,6 +38,7 @@ You can specify a path to emulator by `Z80Asm > Settings > Emul script...` menu.
 
 There are a lot of useful snippets for ZX-Spectrum, you can trigger them by typing their name and pressing Tab:
 
+* ---            - Delimiter
 * !basic         - Basic monoloader skeleton
 * !basexit       - Restore regs and return to Basic  
 * !init          - Skeleton for assembler
@@ -69,6 +70,9 @@ There are a lot of useful snippets for ZX-Spectrum, you can trigger them by typi
 * !macro         - Macro definition
 * !module        - Module definition
 * !struct        - Structure definition
+* !savetrd       - Save binary block into .trd image
+* !savesna       - Save .sna snapshot
+* !savebin       - Save binary block
 
 #### Auto completion and Goto Symbol
 

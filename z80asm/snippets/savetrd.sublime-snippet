@@ -1,0 +1,11 @@
+<snippet>
+    <content><![CDATA[
+        savetrd "${1:mydisk}.trd","${2:code.C}",${3:start},${4:len}
+        ${0:}
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!savetrd</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.z80asm</scope>
+    <description>Z80 Asm: savetrd</description>
+</snippet>
